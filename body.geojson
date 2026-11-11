@@ -24,6 +24,18 @@
         "type": "Point",
         "coordinates": [14.4378, 50.0755]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "nazev": "Stará Boleslav",
+        "popisek": "Testovací popis."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.6785839, 50.2002231]
+      }
     }
   ]
 }

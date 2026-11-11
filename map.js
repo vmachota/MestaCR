@@ -6,10 +6,30 @@ const ZOOM_CR = 7;
 // ---------- Mapa a podkladová vrstva ----------
 const mapa = L.map("mapa").setView(STRED_CR, ZOOM_CR);
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(mapa);
+const podklady = {
+  "Tmavá (CARTO Dark Matter)": L.tileLayer(
+    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    {
+      subdomains: "abcd",
+      maxZoom: 20,
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> přispěvatelé ' +
+        '&copy; <a href="https://carto.com/attributions">CARTO</a>'
+    }
+  ),
+  "Světlá (OpenStreetMap)": L.tileLayer(
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }
+  )
+};
+
+// Výchozí je tmavá vrstva, přepínač je vpravo nahoře
+podklady["Tmavá (CARTO Dark Matter)"].addTo(mapa);
+L.control.layers(podklady, null, { collapsed: false }).addTo(mapa);
 
 // ---------- Pomocné funkce ----------
 // Ochrana proti vložení HTML z dat do popupu

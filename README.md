@@ -52,7 +52,18 @@ tedy opačně než v Leafletu (`[lat, lng]`).
 - `nazev` – název zobrazený v tooltipu a v popupu
 - `popisek` – text zobrazený v popupu po kliknutí na bod
 
+## Podkladové vrstvy
+
+Mapa má přepínač vrstev (vpravo nahoře):
+
+- **Tmavá** – CARTO Dark Matter (výchozí)
+- **Světlá** – OpenStreetMap
+
+Další vrstvu přidáte do objektu `podklady` v `map.js`.
+Výchozí vrstvu změníte řádkem `podklady[...].addTo(mapa)`.
+
 ## Použité technologie
 
 - [Leaflet 1.9.4](https://leafletjs.com/)
-- Podkladová mapa © [OpenStreetMap](https://www.openstreetmap.org/copyright) přispěvatelé
+- Tmavý podklad © [CARTO](https://carto.com/attributions), data © [OpenStreetMap](https://www.openstreetmap.org/copyright) přispěvatelé
+- Světlý podklad © [OpenStreetMap](https://www.openstreetmap.org/copyright) přispěvatelé
